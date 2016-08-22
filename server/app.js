@@ -2,12 +2,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
-var tasks = require('./routes/tasks.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
-app.use('/tasks', tasks);
 
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";
