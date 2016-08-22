@@ -16,10 +16,10 @@ body {
     border: 2px solid gray;
 }
 
-.complete {
+.completed {
     border: 2px solid #000;
     background-color: papayawhip;
-    color: #ccc;
+    color: tomato;
 }
 
 .incomplete {
