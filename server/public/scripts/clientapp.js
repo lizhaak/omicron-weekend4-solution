@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 });
 
-// utility functions
+// Send task object to the server
 function saveTask() {
   event.preventDefault();
 
@@ -30,14 +30,15 @@ function saveTask() {
   });
 }
 
+// retrieve tasks from the server
 function getTasks() {
-  // retrieve tasks from the server
   $.get('/tasks', appendTasks)
     .fail(function() {
       console.log('error!');
     });
 }
 
+// send update request to server for this task
 function completeTask() {
   var id = $(this).parent().data('id');
   console.log('this task id ', id);
@@ -53,7 +54,9 @@ function completeTask() {
   });
 }
 
+// delete this task from the server
 function deleteTask() {
+  // use the built-in browser confirm dialog
   if(confirm("Are you sure you wanna delete this?")) {
     var id = $(this).parent().data('id');
     console.log('delete task id ', id);
@@ -66,10 +69,12 @@ function deleteTask() {
         console.log("unable to delete task");
       }
     });
-  }  
+  }
 }
 
-
+/***
+* @params tasks - an array of task items, probably from the DB
+**/
 function appendTasks(tasks) {
   console.log('appendin: ', tasks);
   $("#task-container").empty();
