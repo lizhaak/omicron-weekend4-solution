@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node server/app.js"
+    "test" : "nodemon server/app.js",
+    "start": "node server/app.js"
   },
   "author": "kris",
   "license": "ISC",
