@@ -2,19 +2,30 @@
 <html language="en">
 <head>
     <title>OmicronDiDyDo List!</title>
-    <script type="text/javascript" src="/public/vendor/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="/public/vendor/jquery.min.js"></script> -->
+    <script type="text/javascript" src="/public/vendor/angular.min.js"></script>
     <script type="text/javascript" src="/public/scripts/clientapp.js"></script>
+    <script type="text/javascript" src="/public/scripts/controllers/taskController.js"></script>
 
     <link rel="stylesheet" href="/public/styles/main.css" />
 </head>
-<body>
+<body ng-app="myApp">
   <h1>&Omicron;-DiDyDo List</h1>
-  <div>
+  <div ng-controller="taskController">
     <form id="taskForm">
       <label for="taskContent">Enter a Task: </label>
-      <input type="text" name="taskContent" id="taskContent" />
-      <button id="taskSubmit">Submit</button>
+      <input ng-model="taskContent" type="text" name="taskContent" id="taskContent" />
+      <button id="taskSubmit" ng-click="saveTask()">Submit</button>
     </form>
+
+    <div id="task-container">
+      <div class="task-listing" ng-repeat="task in tasks" ng-class="{completed: task.completed_date}">
+        <h2>{{task.task_content}}</h2>
+        <button ng-click="completeTask(task.id)" ng-show="task.completed_date == null" class="completeTask">Complete</button>
+        <button ng-click="deleteTask(task.id)" class="deleteTask">Delete</button>
+      </div>
+    </div>
   </div>
-  <div id="task-container"></div>
+
 </body>
+</html>

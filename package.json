@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test" : "nodemon server/app.js",
+    "test": "nodemon server/app.js",
     "start": "node server/app.js"
   },
   "author": "kris",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.5.8",
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "jquery": "^2.2.4",
